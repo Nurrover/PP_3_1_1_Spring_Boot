@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info about the User</title>
+</head>
+<body>
+
+<p th:text="'Name: ' + ${user.getName()}">name</p>
+<p th:text="'Age: ' + ${user.getAge()}">age</p>
+<p th:text="'Email: ' + ${user.getEmail()}">email</p>
+<br/>
+
+<form th:method="GET" th:action="@{/templates/users}">
+    <input type="submit" value="Cancel">
+</form>
+<br/>
+
+<form th:method="GET" th:action="@{/users/{id}/edit(id=${user.getId()})}">
+    <input type="submit" value="Edit">
+</form>
+<br/>
+
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+    <input type="submit" value="Delete!">
+</form>
+
+</body>
+</html>
